@@ -12,8 +12,13 @@ import ResetForm from "./ResetForm";
 const Index = () => {
 
     const search = Route.useSearch();
-    const email = search.email?.trim();
-    const verify = search.verify?.trim();
+
+    const email = search.email?.trim() || "";
+    const verify = search.verify?.trim() || "";
+
+    const hasEmail = email.length > 0;
+    const isVerified = verify === "done";
+
 
     return (
         <main className="z-5 relative drop-shadow-md p-4 md:p-6 xl:p-8 rounded-2xl w-full max-w-xl">
@@ -27,11 +32,12 @@ const Index = () => {
                 </p>
             </div>
 
-            {(!email && !verify) && <EmailForm />}
-            
-            {(email !== undefined && !verify) && <VerifyForm />}
+            {!hasEmail && !verify && <EmailForm />}
 
-            {(email && verify === "done") && <ResetForm />}
+            {hasEmail && !isVerified && <VerifyForm />}
+
+            {hasEmail && isVerified && <ResetForm />}
+
 
             <div className="relative my-4">
                 <div className="absolute inset-0 flex items-center">

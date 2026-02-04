@@ -54,7 +54,7 @@ const Index = () => {
 
             <div className="flex justify-between items-center font-semibold text-[11px] text-card-foreground md:text-xs xl:text-sm uppercase tracking-tight montserrat">
                 <Link className="hover:text-accent duration-300" to="/create" search={{ ref: undefined }}>Account Creation</Link>
-                <Link className="hover:text-accent duration-300" to="/forgot" search={{ email: "", verify: "" }}>Password Recovery</Link>
+                <Link className="hover:text-accent duration-300" to="/forgot" search={{ email: undefined, verify: undefined }}>Password Recovery</Link>
             </div>
 
         </main>

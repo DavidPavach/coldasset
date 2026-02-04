@@ -16,7 +16,7 @@ const ProfileRow = ({ icon, label, value }: { icon: React.ReactNode; label: stri
             <p className="font-medium text-muted-foreground text-xs uppercase tracking-wide">
                 {label}
             </p>
-            <div className="font-semibold text-sm">{value}</div>
+            <div className="font-semibold text-sm break-all">{value}</div>
         </div>
     </div>
 );
@@ -47,7 +47,7 @@ const Index = () => {
     if (!profile) return null;
 
     return (
-        <main className="mx-auto px-4 pb-20 max-w-5xl">
+        <main className="mx-auto px-4 pb-20 max-w-6xl">
             <header className="mt-4 mb-10 text-center">
                 <h1 className="font-bold text-xl md:text-2xl xl:text-3xl tracking-tight">
                     Profile Overview
