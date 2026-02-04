@@ -9,38 +9,400 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UserRouteRouteImport } from './routes/_user/route'
+import { Route as AuthRouteRouteImport } from './routes/_auth/route'
+import { Route as AdminRouteRouteImport } from './routes/_admin/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UserSwapRouteImport } from './routes/_user/swap'
+import { Route as UserSettingsRouteImport } from './routes/_user/settings'
+import { Route as UserSendRouteImport } from './routes/_user/send'
+import { Route as UserReceiveRouteImport } from './routes/_user/receive'
+import { Route as UserLogoutRouteImport } from './routes/_user/logout'
+import { Route as UserHistoryRouteImport } from './routes/_user/history'
+import { Route as UserDiscoverRouteImport } from './routes/_user/discover'
+import { Route as UserDashboardRouteImport } from './routes/_user/dashboard'
+import { Route as UserConnectWalletRouteImport } from './routes/_user/connect-wallet'
+import { Route as UserCoinRouteImport } from './routes/_user/coin'
+import { Route as AuthVerificationRouteImport } from './routes/_auth/verification'
+import { Route as AuthPassphraseVerificationRouteImport } from './routes/_auth/passphrase-verification'
+import { Route as AuthPassphraseRouteImport } from './routes/_auth/passphrase'
+import { Route as AuthPasscodeVerifyRouteImport } from './routes/_auth/passcode-verify'
+import { Route as AuthPasscodeRouteImport } from './routes/_auth/passcode'
+import { Route as AuthOperationsRouteImport } from './routes/_auth/operations'
+import { Route as AuthLoginRouteImport } from './routes/_auth/login'
+import { Route as AuthKycRouteImport } from './routes/_auth/kyc'
+import { Route as AuthForgotRouteImport } from './routes/_auth/forgot'
+import { Route as AuthCreateRouteImport } from './routes/_auth/create'
+import { Route as AdminUsersRouteImport } from './routes/_admin/users'
+import { Route as AdminTransactionsRouteImport } from './routes/_admin/transactions'
+import { Route as AdminStaffRouteImport } from './routes/_admin/staff'
+import { Route as AdminProfileRouteImport } from './routes/_admin/profile'
+import { Route as AdminNotificationsRouteImport } from './routes/_admin/notifications'
+import { Route as AdminConnectRouteImport } from './routes/_admin/connect'
 
+const UserRouteRoute = UserRouteRouteImport.update({
+  id: '/_user',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRouteRoute = AuthRouteRouteImport.update({
+  id: '/_auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/_admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UserSwapRoute = UserSwapRouteImport.update({
+  id: '/swap',
+  path: '/swap',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserSettingsRoute = UserSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserSendRoute = UserSendRouteImport.update({
+  id: '/send',
+  path: '/send',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserReceiveRoute = UserReceiveRouteImport.update({
+  id: '/receive',
+  path: '/receive',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserLogoutRoute = UserLogoutRouteImport.update({
+  id: '/logout',
+  path: '/logout',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserHistoryRoute = UserHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserDiscoverRoute = UserDiscoverRouteImport.update({
+  id: '/discover',
+  path: '/discover',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserDashboardRoute = UserDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserConnectWalletRoute = UserConnectWalletRouteImport.update({
+  id: '/connect-wallet',
+  path: '/connect-wallet',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserCoinRoute = UserCoinRouteImport.update({
+  id: '/coin',
+  path: '/coin',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const AuthVerificationRoute = AuthVerificationRouteImport.update({
+  id: '/verification',
+  path: '/verification',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthPassphraseVerificationRoute =
+  AuthPassphraseVerificationRouteImport.update({
+    id: '/passphrase-verification',
+    path: '/passphrase-verification',
+    getParentRoute: () => AuthRouteRoute,
+  } as any)
+const AuthPassphraseRoute = AuthPassphraseRouteImport.update({
+  id: '/passphrase',
+  path: '/passphrase',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthPasscodeVerifyRoute = AuthPasscodeVerifyRouteImport.update({
+  id: '/passcode-verify',
+  path: '/passcode-verify',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthPasscodeRoute = AuthPasscodeRouteImport.update({
+  id: '/passcode',
+  path: '/passcode',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthOperationsRoute = AuthOperationsRouteImport.update({
+  id: '/operations',
+  path: '/operations',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthKycRoute = AuthKycRouteImport.update({
+  id: '/kyc',
+  path: '/kyc',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthForgotRoute = AuthForgotRouteImport.update({
+  id: '/forgot',
+  path: '/forgot',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AuthCreateRoute = AuthCreateRouteImport.update({
+  id: '/create',
+  path: '/create',
+  getParentRoute: () => AuthRouteRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminTransactionsRoute = AdminTransactionsRouteImport.update({
+  id: '/transactions',
+  path: '/transactions',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminStaffRoute = AdminStaffRouteImport.update({
+  id: '/staff',
+  path: '/staff',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminProfileRoute = AdminProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminConnectRoute = AdminConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/connect': typeof AdminConnectRoute
+  '/notifications': typeof AdminNotificationsRoute
+  '/profile': typeof AdminProfileRoute
+  '/staff': typeof AdminStaffRoute
+  '/transactions': typeof AdminTransactionsRoute
+  '/users': typeof AdminUsersRoute
+  '/create': typeof AuthCreateRoute
+  '/forgot': typeof AuthForgotRoute
+  '/kyc': typeof AuthKycRoute
+  '/login': typeof AuthLoginRoute
+  '/operations': typeof AuthOperationsRoute
+  '/passcode': typeof AuthPasscodeRoute
+  '/passcode-verify': typeof AuthPasscodeVerifyRoute
+  '/passphrase': typeof AuthPassphraseRoute
+  '/passphrase-verification': typeof AuthPassphraseVerificationRoute
+  '/verification': typeof AuthVerificationRoute
+  '/coin': typeof UserCoinRoute
+  '/connect-wallet': typeof UserConnectWalletRoute
+  '/dashboard': typeof UserDashboardRoute
+  '/discover': typeof UserDiscoverRoute
+  '/history': typeof UserHistoryRoute
+  '/logout': typeof UserLogoutRoute
+  '/receive': typeof UserReceiveRoute
+  '/send': typeof UserSendRoute
+  '/settings': typeof UserSettingsRoute
+  '/swap': typeof UserSwapRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/connect': typeof AdminConnectRoute
+  '/notifications': typeof AdminNotificationsRoute
+  '/profile': typeof AdminProfileRoute
+  '/staff': typeof AdminStaffRoute
+  '/transactions': typeof AdminTransactionsRoute
+  '/users': typeof AdminUsersRoute
+  '/create': typeof AuthCreateRoute
+  '/forgot': typeof AuthForgotRoute
+  '/kyc': typeof AuthKycRoute
+  '/login': typeof AuthLoginRoute
+  '/operations': typeof AuthOperationsRoute
+  '/passcode': typeof AuthPasscodeRoute
+  '/passcode-verify': typeof AuthPasscodeVerifyRoute
+  '/passphrase': typeof AuthPassphraseRoute
+  '/passphrase-verification': typeof AuthPassphraseVerificationRoute
+  '/verification': typeof AuthVerificationRoute
+  '/coin': typeof UserCoinRoute
+  '/connect-wallet': typeof UserConnectWalletRoute
+  '/dashboard': typeof UserDashboardRoute
+  '/discover': typeof UserDiscoverRoute
+  '/history': typeof UserHistoryRoute
+  '/logout': typeof UserLogoutRoute
+  '/receive': typeof UserReceiveRoute
+  '/send': typeof UserSendRoute
+  '/settings': typeof UserSettingsRoute
+  '/swap': typeof UserSwapRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_admin': typeof AdminRouteRouteWithChildren
+  '/_auth': typeof AuthRouteRouteWithChildren
+  '/_user': typeof UserRouteRouteWithChildren
+  '/_admin/connect': typeof AdminConnectRoute
+  '/_admin/notifications': typeof AdminNotificationsRoute
+  '/_admin/profile': typeof AdminProfileRoute
+  '/_admin/staff': typeof AdminStaffRoute
+  '/_admin/transactions': typeof AdminTransactionsRoute
+  '/_admin/users': typeof AdminUsersRoute
+  '/_auth/create': typeof AuthCreateRoute
+  '/_auth/forgot': typeof AuthForgotRoute
+  '/_auth/kyc': typeof AuthKycRoute
+  '/_auth/login': typeof AuthLoginRoute
+  '/_auth/operations': typeof AuthOperationsRoute
+  '/_auth/passcode': typeof AuthPasscodeRoute
+  '/_auth/passcode-verify': typeof AuthPasscodeVerifyRoute
+  '/_auth/passphrase': typeof AuthPassphraseRoute
+  '/_auth/passphrase-verification': typeof AuthPassphraseVerificationRoute
+  '/_auth/verification': typeof AuthVerificationRoute
+  '/_user/coin': typeof UserCoinRoute
+  '/_user/connect-wallet': typeof UserConnectWalletRoute
+  '/_user/dashboard': typeof UserDashboardRoute
+  '/_user/discover': typeof UserDiscoverRoute
+  '/_user/history': typeof UserHistoryRoute
+  '/_user/logout': typeof UserLogoutRoute
+  '/_user/receive': typeof UserReceiveRoute
+  '/_user/send': typeof UserSendRoute
+  '/_user/settings': typeof UserSettingsRoute
+  '/_user/swap': typeof UserSwapRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/connect'
+    | '/notifications'
+    | '/profile'
+    | '/staff'
+    | '/transactions'
+    | '/users'
+    | '/create'
+    | '/forgot'
+    | '/kyc'
+    | '/login'
+    | '/operations'
+    | '/passcode'
+    | '/passcode-verify'
+    | '/passphrase'
+    | '/passphrase-verification'
+    | '/verification'
+    | '/coin'
+    | '/connect-wallet'
+    | '/dashboard'
+    | '/discover'
+    | '/history'
+    | '/logout'
+    | '/receive'
+    | '/send'
+    | '/settings'
+    | '/swap'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/connect'
+    | '/notifications'
+    | '/profile'
+    | '/staff'
+    | '/transactions'
+    | '/users'
+    | '/create'
+    | '/forgot'
+    | '/kyc'
+    | '/login'
+    | '/operations'
+    | '/passcode'
+    | '/passcode-verify'
+    | '/passphrase'
+    | '/passphrase-verification'
+    | '/verification'
+    | '/coin'
+    | '/connect-wallet'
+    | '/dashboard'
+    | '/discover'
+    | '/history'
+    | '/logout'
+    | '/receive'
+    | '/send'
+    | '/settings'
+    | '/swap'
+  id:
+    | '__root__'
+    | '/'
+    | '/_admin'
+    | '/_auth'
+    | '/_user'
+    | '/_admin/connect'
+    | '/_admin/notifications'
+    | '/_admin/profile'
+    | '/_admin/staff'
+    | '/_admin/transactions'
+    | '/_admin/users'
+    | '/_auth/create'
+    | '/_auth/forgot'
+    | '/_auth/kyc'
+    | '/_auth/login'
+    | '/_auth/operations'
+    | '/_auth/passcode'
+    | '/_auth/passcode-verify'
+    | '/_auth/passphrase'
+    | '/_auth/passphrase-verification'
+    | '/_auth/verification'
+    | '/_user/coin'
+    | '/_user/connect-wallet'
+    | '/_user/dashboard'
+    | '/_user/discover'
+    | '/_user/history'
+    | '/_user/logout'
+    | '/_user/receive'
+    | '/_user/send'
+    | '/_user/settings'
+    | '/_user/swap'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  AuthRouteRoute: typeof AuthRouteRouteWithChildren
+  UserRouteRoute: typeof UserRouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_user': {
+      id: '/_user'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof UserRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AuthRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_admin': {
+      id: '/_admin'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +410,278 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_user/swap': {
+      id: '/_user/swap'
+      path: '/swap'
+      fullPath: '/swap'
+      preLoaderRoute: typeof UserSwapRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/settings': {
+      id: '/_user/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof UserSettingsRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/send': {
+      id: '/_user/send'
+      path: '/send'
+      fullPath: '/send'
+      preLoaderRoute: typeof UserSendRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/receive': {
+      id: '/_user/receive'
+      path: '/receive'
+      fullPath: '/receive'
+      preLoaderRoute: typeof UserReceiveRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/logout': {
+      id: '/_user/logout'
+      path: '/logout'
+      fullPath: '/logout'
+      preLoaderRoute: typeof UserLogoutRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/history': {
+      id: '/_user/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof UserHistoryRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/discover': {
+      id: '/_user/discover'
+      path: '/discover'
+      fullPath: '/discover'
+      preLoaderRoute: typeof UserDiscoverRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/dashboard': {
+      id: '/_user/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof UserDashboardRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/connect-wallet': {
+      id: '/_user/connect-wallet'
+      path: '/connect-wallet'
+      fullPath: '/connect-wallet'
+      preLoaderRoute: typeof UserConnectWalletRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/coin': {
+      id: '/_user/coin'
+      path: '/coin'
+      fullPath: '/coin'
+      preLoaderRoute: typeof UserCoinRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_auth/verification': {
+      id: '/_auth/verification'
+      path: '/verification'
+      fullPath: '/verification'
+      preLoaderRoute: typeof AuthVerificationRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/passphrase-verification': {
+      id: '/_auth/passphrase-verification'
+      path: '/passphrase-verification'
+      fullPath: '/passphrase-verification'
+      preLoaderRoute: typeof AuthPassphraseVerificationRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/passphrase': {
+      id: '/_auth/passphrase'
+      path: '/passphrase'
+      fullPath: '/passphrase'
+      preLoaderRoute: typeof AuthPassphraseRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/passcode-verify': {
+      id: '/_auth/passcode-verify'
+      path: '/passcode-verify'
+      fullPath: '/passcode-verify'
+      preLoaderRoute: typeof AuthPasscodeVerifyRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/passcode': {
+      id: '/_auth/passcode'
+      path: '/passcode'
+      fullPath: '/passcode'
+      preLoaderRoute: typeof AuthPasscodeRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/operations': {
+      id: '/_auth/operations'
+      path: '/operations'
+      fullPath: '/operations'
+      preLoaderRoute: typeof AuthOperationsRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/login': {
+      id: '/_auth/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/kyc': {
+      id: '/_auth/kyc'
+      path: '/kyc'
+      fullPath: '/kyc'
+      preLoaderRoute: typeof AuthKycRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/forgot': {
+      id: '/_auth/forgot'
+      path: '/forgot'
+      fullPath: '/forgot'
+      preLoaderRoute: typeof AuthForgotRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_auth/create': {
+      id: '/_auth/create'
+      path: '/create'
+      fullPath: '/create'
+      preLoaderRoute: typeof AuthCreateRouteImport
+      parentRoute: typeof AuthRouteRoute
+    }
+    '/_admin/users': {
+      id: '/_admin/users'
+      path: '/users'
+      fullPath: '/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/transactions': {
+      id: '/_admin/transactions'
+      path: '/transactions'
+      fullPath: '/transactions'
+      preLoaderRoute: typeof AdminTransactionsRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/staff': {
+      id: '/_admin/staff'
+      path: '/staff'
+      fullPath: '/staff'
+      preLoaderRoute: typeof AdminStaffRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/profile': {
+      id: '/_admin/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AdminProfileRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/notifications': {
+      id: '/_admin/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/_admin/connect': {
+      id: '/_admin/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof AdminConnectRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminConnectRoute: typeof AdminConnectRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminProfileRoute: typeof AdminProfileRoute
+  AdminStaffRoute: typeof AdminStaffRoute
+  AdminTransactionsRoute: typeof AdminTransactionsRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminConnectRoute: AdminConnectRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminProfileRoute: AdminProfileRoute,
+  AdminStaffRoute: AdminStaffRoute,
+  AdminTransactionsRoute: AdminTransactionsRoute,
+  AdminUsersRoute: AdminUsersRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
+interface AuthRouteRouteChildren {
+  AuthCreateRoute: typeof AuthCreateRoute
+  AuthForgotRoute: typeof AuthForgotRoute
+  AuthKycRoute: typeof AuthKycRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthOperationsRoute: typeof AuthOperationsRoute
+  AuthPasscodeRoute: typeof AuthPasscodeRoute
+  AuthPasscodeVerifyRoute: typeof AuthPasscodeVerifyRoute
+  AuthPassphraseRoute: typeof AuthPassphraseRoute
+  AuthPassphraseVerificationRoute: typeof AuthPassphraseVerificationRoute
+  AuthVerificationRoute: typeof AuthVerificationRoute
+}
+
+const AuthRouteRouteChildren: AuthRouteRouteChildren = {
+  AuthCreateRoute: AuthCreateRoute,
+  AuthForgotRoute: AuthForgotRoute,
+  AuthKycRoute: AuthKycRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthOperationsRoute: AuthOperationsRoute,
+  AuthPasscodeRoute: AuthPasscodeRoute,
+  AuthPasscodeVerifyRoute: AuthPasscodeVerifyRoute,
+  AuthPassphraseRoute: AuthPassphraseRoute,
+  AuthPassphraseVerificationRoute: AuthPassphraseVerificationRoute,
+  AuthVerificationRoute: AuthVerificationRoute,
+}
+
+const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
+  AuthRouteRouteChildren,
+)
+
+interface UserRouteRouteChildren {
+  UserCoinRoute: typeof UserCoinRoute
+  UserConnectWalletRoute: typeof UserConnectWalletRoute
+  UserDashboardRoute: typeof UserDashboardRoute
+  UserDiscoverRoute: typeof UserDiscoverRoute
+  UserHistoryRoute: typeof UserHistoryRoute
+  UserLogoutRoute: typeof UserLogoutRoute
+  UserReceiveRoute: typeof UserReceiveRoute
+  UserSendRoute: typeof UserSendRoute
+  UserSettingsRoute: typeof UserSettingsRoute
+  UserSwapRoute: typeof UserSwapRoute
+}
+
+const UserRouteRouteChildren: UserRouteRouteChildren = {
+  UserCoinRoute: UserCoinRoute,
+  UserConnectWalletRoute: UserConnectWalletRoute,
+  UserDashboardRoute: UserDashboardRoute,
+  UserDiscoverRoute: UserDiscoverRoute,
+  UserHistoryRoute: UserHistoryRoute,
+  UserLogoutRoute: UserLogoutRoute,
+  UserReceiveRoute: UserReceiveRoute,
+  UserSendRoute: UserSendRoute,
+  UserSettingsRoute: UserSettingsRoute,
+  UserSwapRoute: UserSwapRoute,
+}
+
+const UserRouteRouteWithChildren = UserRouteRoute._addFileChildren(
+  UserRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  AuthRouteRoute: AuthRouteRouteWithChildren,
+  UserRouteRoute: UserRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

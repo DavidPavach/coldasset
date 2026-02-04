@@ -7,6 +7,9 @@ import { ToastContainer } from 'react-fox-toast';
 // Theme
 import { ThemeProviderEffect } from '@/components/ThemeProvider';
 
+// Components
+import NotFound from '@/pages/NotFound';
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -16,12 +19,13 @@ const queryClient = new QueryClient({
       staleTime: 5 * 60000,
       refetchOnReconnect: true,
       refetchOnMount: true,
-      gcTime: 10 * 60000
+      gcTime: 7 * 60000
     }
   }
 })
 
 export const Route = createRootRoute({
+  notFoundComponent: () => <NotFound />,
   component: () => (
     <QueryClientProvider client={queryClient}>
       <Outlet />
