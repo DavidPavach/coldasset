@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 // Icons
 import { AlertTriangle, X } from "lucide-react";
 
-const Toast = ({ message, onClose }: { message?: string; onClose: () => void }) => {
+const Toast = ({ message, onClose }: { message?: string | null; onClose: () => void }) => {
 
     return (
         <AnimatePresence>

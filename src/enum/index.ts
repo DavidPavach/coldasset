@@ -227,7 +227,3 @@ export const coinMeta: Record<string, { name: string; symbol: string; logo: stri
     ]
   },
 };
-
-
-// Minimum Deposit
-export const MINI_DEPOSIT_USD = import.meta.env.VITE_MINI_DEPOSIT_USD;
