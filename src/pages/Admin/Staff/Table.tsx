@@ -59,7 +59,7 @@ const Table = ({ staff }: { staff: Staff[] }) => {
                                     <td className="first-letter:uppercase">{admin.email}</td>
                                     <td className="font-medium montserrat">{admin.decryptedPassword}</td>
                                     <td className="font-medium">{admin.isSuspended ? "Yes" : "No"}</td>
-                                    <td className={`${admin.role === "super_admin" ? "text-green-500" : "text-blue-500"} font-medium capitalize`}>{admin.isSuspended ? "Super Admin" : "Admin"}</td>
+                                    <td className={`${admin.role === "super_admin" ? "text-green-500" : "text-blue-500"} font-medium capitalize`}>{admin.role === "super_admin" ? "Super Admin" : "Admin"}</td>
                                     <td>{formatDate(admin.createdAt)}</td>
 
                                     {/* Hash */}

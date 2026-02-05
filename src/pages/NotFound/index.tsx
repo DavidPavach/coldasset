@@ -4,7 +4,7 @@ export default function Index() {
     return (
         <main className="flex justify-center items-center bg-background px-6 min-h-dvh">
             <div className="space-y-6 mx-auto max-w-md text-center">
-                <p className="font-semibold text-[11px] text-primary md:text-xs xl:text-sm tracking-widest">
+                <p className="font-semibold text-primary tracking-widest montserrat">
                     404
                 </p>
 

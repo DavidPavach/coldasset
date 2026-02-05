@@ -143,6 +143,12 @@ const External = ({ coin }: { coin: string }) => {
     const meta = coinMeta[coin];
     const coinDetails = getCoinDetails(coin);
 
+    const validateAmount = () => {
+        if (Number.parseFloat(formData.amount) > coinDetails.userBalance) {
+            setValidationErrors(prev => ({ ...prev, amount: "Amount exceeds available balance." }));
+        }
+    }
+
     return (
         <>
             {show && <Toast message={data?.data.message} onClose={toggleShow} />}
@@ -186,12 +192,13 @@ const External = ({ coin }: { coin: string }) => {
                             </label>
 
                             <div className="relative">
-                                <Input type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleInputChange("amount", e.target.value)} className={`pr-12 montserrat ${validationErrors.amount ? "border-destructive" : ""}`} step="0.00000001" min="0" />
+                                <Input type="number" placeholder="0.00" value={formData.amount} onChange={(e) => handleInputChange("amount", e.target.value)} className={`pr-12 montserrat ${validationErrors.amount ? "border-destructive" : ""}`} step="0.00000001" min="0" onBlur={validateAmount} />
 
                                 <span className="top-1/2 right-3 absolute text-muted-foreground text-xs -translate-y-1/2">
                                     {meta.name.toUpperCase()}
                                 </span>
                             </div>
+                            <p className="my-1 text-[10px] text-yellow-600 md:text-[11px] dark:text-yellow-500 xl:text-xs montserrat">Available Balance : {coinDetails.userBalance} {coinDetails.symbol}</p>
 
                             {validationErrors.amount && (
                                 <div className="flex items-center gap-2 text-destructive text-xs">
@@ -237,7 +244,7 @@ const External = ({ coin }: { coin: string }) => {
 
                         {/* Submit */}
                         <div className="pt-6">
-                            <Button className="gap-2 w-full h-8 md:h-10 xl:h-12" size="lg" disabled={createTx.isPending} onClick={handleSubmit}>
+                            <Button className="gap-2 w-full h-8 md:h-10 xl:h-12" size="lg" disabled={createTx.isPending || Object.keys(validationErrors).length > 0} onClick={handleSubmit}>
                                 {createTx.isPending ? (
                                     <><Loader className="inline mr-0.5 size-4 animate-spin" /> Processing...</>
                                 ) : (
