@@ -1,7 +1,7 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router';
 
-//Layout
-
+// Layout
+import HomeLayout from '@/layouts/HomeLayout';
 
 export const Route = createFileRoute('/_home')({
   component: UseHomeWrapper,
@@ -9,8 +9,8 @@ export const Route = createFileRoute('/_home')({
 
 function UseHomeWrapper() {
   return (
-    <div>
+    <HomeLayout>
       <Outlet />
-    </div>
+    </HomeLayout>
   )
 }

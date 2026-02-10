@@ -7,7 +7,7 @@ import { formatCurrency } from "@/utils/format";
 
 //Icons
 import { Loader2 } from "lucide-react";
-import { Copy, CopySuccess, Eye, EyeSlash, Send2, DirectboxReceive, BitcoinConvert, BitcoinCard } from "iconsax-reactjs";
+import { Copy, CopySuccess, Eye, EyeSlash, Send2, DirectDown, BitcoinConvert, BitcoinCard } from "iconsax-reactjs";
 
 
 type BalanceSummaryProps = {
@@ -29,7 +29,7 @@ const BalanceSummary = ({ walletId, balance, isLoading }: BalanceSummaryProps) =
 
     const actions = [
         { icon: <Send2 className="size-4 md:size-5 xl:size-6" />, label: "Send", url: "/send" },
-        { icon: <DirectboxReceive className="size-4 md:size-5 xl:size-6" />, label: "Receive", url: "/receive" },
+        { icon: <DirectDown className="size-4 md:size-5 xl:size-6" />, label: "Receive", url: "/receive" },
         { icon: <BitcoinConvert className="size-4 md:size-5 xl:size-6" />, label: "Swap", url: "/swap" },
         { icon: <BitcoinCard className="size-4 md:size-5 xl:size-6" />, label: "Buy", url: "/buy" },
     ]

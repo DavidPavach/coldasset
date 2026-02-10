@@ -4,7 +4,7 @@ import { useNavigate } from "@tanstack/react-router";
 // Libs
 import { getAdminAccessToken } from "@/lib/token";
 
-//Component
+// Component
 import { BottomNav, SideNav } from "@/components/AdminNav";
 import Header from "@/components/AdminHeader";
 

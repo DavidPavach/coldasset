@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 
 // Icons
 import { ArrowRight, Users, Building2, Zap, Shield, Sparkles, Check, Download, QrCode, Info } from 'lucide-react';
-import { DirectboxReceive } from 'iconsax-reactjs';
+import { DirectDown } from 'iconsax-reactjs';
 
 const TRANSFER_RECEIVE_OPTIONS = [
     {
@@ -68,7 +68,7 @@ export default function ReceiveType() {
                 {/* Header */}
                 <motion.div initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-10 text-center">
                     <div className="inline-flex justify-center items-center bg-primary/10 mb-6 rounded-3xl size-14 md:size-16 xl:size-18">
-                        <DirectboxReceive className="size-7 md:size-8 xl:size-9 text-primary" />
+                        <DirectDown className="size-7 md:size-8 xl:size-9 text-primary" />
                     </div>
 
                     <h1 className="mb-2 font-bold text-foreground text-2xl md:text-3xl xl:text-4xl tracking-tight">

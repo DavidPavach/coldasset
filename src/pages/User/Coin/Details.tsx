@@ -11,7 +11,7 @@ import CoinGeckoChart from './CoinGeckoChart';
 import Transactions from './Transactions';
 
 // Icons
-import { DirectboxSend, DirectboxReceive, BitcoinConvert } from 'iconsax-reactjs';
+import { DirectboxSend, DirectDown, BitcoinConvert } from 'iconsax-reactjs';
 
 const DetailsSkeleton = () => (
     <div className="space-y-8 mx-auto px-4 max-w-5xl">
@@ -68,7 +68,7 @@ const Details = ({ coin }: { coin: string }) => {
         {
             label: 'Receive',
             url: `/receive?coin=${coin}`,
-            icon: <DirectboxReceive size={20} variant="Bold" />
+            icon: <DirectDown size={20} variant="Bold" />
         },
         {
             label: 'Swap',

@@ -6,11 +6,11 @@ import { formatAddress, formatCurrency, formatDate } from '@/utils/format';
 
 // Icons
 import { CheckCircle2, Clock, XCircle } from 'lucide-react';
-import { BitcoinConvert, DirectboxReceive, Send2 } from 'iconsax-reactjs';
+import { BitcoinConvert, DirectDown, Send2 } from 'iconsax-reactjs';
 
 const ICONS = {
     sent: Send2,
-    received: DirectboxReceive,
+    received: DirectDown,
     swap: BitcoinConvert
 };
 

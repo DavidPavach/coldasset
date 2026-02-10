@@ -94,7 +94,7 @@ const External = ({ coin }: { coin: string }) => {
 
         createTx.mutate(submissionData, {
             onSuccess: (response) => {
-                toast.success(response.data.message || "Your transfer was initiated successfully!");
+                toast.success(response.message || "Your transfer was initiated successfully!");
                 setShow(true);
                 reset();
             },

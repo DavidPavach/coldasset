@@ -10,9 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UserRouteRouteImport } from './routes/_user/route'
+import { Route as HomeRouteRouteImport } from './routes/_home/route'
 import { Route as AuthRouteRouteImport } from './routes/_auth/route'
 import { Route as AdminRouteRouteImport } from './routes/_admin/route'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as HomeIndexRouteImport } from './routes/_home/index'
 import { Route as UserSwapRouteImport } from './routes/_user/swap'
 import { Route as UserSettingsRouteImport } from './routes/_user/settings'
 import { Route as UserSendRouteImport } from './routes/_user/send'
@@ -23,6 +24,7 @@ import { Route as UserDiscoverRouteImport } from './routes/_user/discover'
 import { Route as UserDashboardRouteImport } from './routes/_user/dashboard'
 import { Route as UserConnectWalletRouteImport } from './routes/_user/connect-wallet'
 import { Route as UserCoinRouteImport } from './routes/_user/coin'
+import { Route as HomeFeaturesRouteImport } from './routes/_home/features'
 import { Route as AuthVerificationRouteImport } from './routes/_auth/verification'
 import { Route as AuthPassphraseVerificationRouteImport } from './routes/_auth/passphrase-verification'
 import { Route as AuthPassphraseRouteImport } from './routes/_auth/passphrase'
@@ -44,6 +46,10 @@ const UserRouteRoute = UserRouteRouteImport.update({
   id: '/_user',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HomeRouteRoute = HomeRouteRouteImport.update({
+  id: '/_home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRouteRoute = AuthRouteRouteImport.update({
   id: '/_auth',
   getParentRoute: () => rootRouteImport,
@@ -52,10 +58,10 @@ const AdminRouteRoute = AdminRouteRouteImport.update({
   id: '/_admin',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const HomeIndexRoute = HomeIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => HomeRouteRoute,
 } as any)
 const UserSwapRoute = UserSwapRouteImport.update({
   id: '/swap',
@@ -106,6 +112,11 @@ const UserCoinRoute = UserCoinRouteImport.update({
   id: '/coin',
   path: '/coin',
   getParentRoute: () => UserRouteRoute,
+} as any)
+const HomeFeaturesRoute = HomeFeaturesRouteImport.update({
+  id: '/features',
+  path: '/features',
+  getParentRoute: () => HomeRouteRoute,
 } as any)
 const AuthVerificationRoute = AuthVerificationRouteImport.update({
   id: '/verification',
@@ -190,7 +201,6 @@ const AdminConnectRoute = AdminConnectRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/connect': typeof AdminConnectRoute
   '/notifications': typeof AdminNotificationsRoute
   '/profile': typeof AdminProfileRoute
@@ -207,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/features': typeof HomeFeaturesRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -217,9 +228,9 @@ export interface FileRoutesByFullPath {
   '/send': typeof UserSendRoute
   '/settings': typeof UserSettingsRoute
   '/swap': typeof UserSwapRoute
+  '/': typeof HomeIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/connect': typeof AdminConnectRoute
   '/notifications': typeof AdminNotificationsRoute
   '/profile': typeof AdminProfileRoute
@@ -236,6 +247,7 @@ export interface FileRoutesByTo {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/features': typeof HomeFeaturesRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -246,12 +258,13 @@ export interface FileRoutesByTo {
   '/send': typeof UserSendRoute
   '/settings': typeof UserSettingsRoute
   '/swap': typeof UserSwapRoute
+  '/': typeof HomeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/_admin': typeof AdminRouteRouteWithChildren
   '/_auth': typeof AuthRouteRouteWithChildren
+  '/_home': typeof HomeRouteRouteWithChildren
   '/_user': typeof UserRouteRouteWithChildren
   '/_admin/connect': typeof AdminConnectRoute
   '/_admin/notifications': typeof AdminNotificationsRoute
@@ -269,6 +282,7 @@ export interface FileRoutesById {
   '/_auth/passphrase': typeof AuthPassphraseRoute
   '/_auth/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/_auth/verification': typeof AuthVerificationRoute
+  '/_home/features': typeof HomeFeaturesRoute
   '/_user/coin': typeof UserCoinRoute
   '/_user/connect-wallet': typeof UserConnectWalletRoute
   '/_user/dashboard': typeof UserDashboardRoute
@@ -279,11 +293,11 @@ export interface FileRoutesById {
   '/_user/send': typeof UserSendRoute
   '/_user/settings': typeof UserSettingsRoute
   '/_user/swap': typeof UserSwapRoute
+  '/_home/': typeof HomeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/connect'
     | '/notifications'
     | '/profile'
@@ -300,6 +314,7 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/features'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -310,9 +325,9 @@ export interface FileRouteTypes {
     | '/send'
     | '/settings'
     | '/swap'
+    | '/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/connect'
     | '/notifications'
     | '/profile'
@@ -329,6 +344,7 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/features'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -339,11 +355,12 @@ export interface FileRouteTypes {
     | '/send'
     | '/settings'
     | '/swap'
+    | '/'
   id:
     | '__root__'
-    | '/'
     | '/_admin'
     | '/_auth'
+    | '/_home'
     | '/_user'
     | '/_admin/connect'
     | '/_admin/notifications'
@@ -361,6 +378,7 @@ export interface FileRouteTypes {
     | '/_auth/passphrase'
     | '/_auth/passphrase-verification'
     | '/_auth/verification'
+    | '/_home/features'
     | '/_user/coin'
     | '/_user/connect-wallet'
     | '/_user/dashboard'
@@ -371,12 +389,13 @@ export interface FileRouteTypes {
     | '/_user/send'
     | '/_user/settings'
     | '/_user/swap'
+    | '/_home/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   AuthRouteRoute: typeof AuthRouteRouteWithChildren
+  HomeRouteRoute: typeof HomeRouteRouteWithChildren
   UserRouteRoute: typeof UserRouteRouteWithChildren
 }
 
@@ -387,6 +406,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: ''
       preLoaderRoute: typeof UserRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_home': {
+      id: '/_home'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof HomeRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_auth': {
@@ -403,12 +429,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_home/': {
+      id: '/_home/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof HomeIndexRouteImport
+      parentRoute: typeof HomeRouteRoute
     }
     '/_user/swap': {
       id: '/_user/swap'
@@ -479,6 +505,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/coin'
       preLoaderRoute: typeof UserCoinRouteImport
       parentRoute: typeof UserRouteRoute
+    }
+    '/_home/features': {
+      id: '/_home/features'
+      path: '/features'
+      fullPath: '/features'
+      preLoaderRoute: typeof HomeFeaturesRouteImport
+      parentRoute: typeof HomeRouteRoute
     }
     '/_auth/verification': {
       id: '/_auth/verification'
@@ -647,6 +680,20 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
   AuthRouteRouteChildren,
 )
 
+interface HomeRouteRouteChildren {
+  HomeFeaturesRoute: typeof HomeFeaturesRoute
+  HomeIndexRoute: typeof HomeIndexRoute
+}
+
+const HomeRouteRouteChildren: HomeRouteRouteChildren = {
+  HomeFeaturesRoute: HomeFeaturesRoute,
+  HomeIndexRoute: HomeIndexRoute,
+}
+
+const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
+  HomeRouteRouteChildren,
+)
+
 interface UserRouteRouteChildren {
   UserCoinRoute: typeof UserCoinRoute
   UserConnectWalletRoute: typeof UserConnectWalletRoute
@@ -678,9 +725,9 @@ const UserRouteRouteWithChildren = UserRouteRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   AuthRouteRoute: AuthRouteRouteWithChildren,
+  HomeRouteRoute: HomeRouteRouteWithChildren,
   UserRouteRoute: UserRouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
