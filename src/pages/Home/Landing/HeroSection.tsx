@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 // Components
 import { Button } from "@/components/ui/button";
@@ -67,15 +68,18 @@ export default function HeroSection() {
 
                         {/* CTA */}
                         <div className="flex sm:flex-row flex-col sm:justify-center lg:justify-start gap-4 mb-12">
-                            <Button size="lg" className="group bg-linear-to-r from-primary to-accent hover:opacity-90 px-4 md:px-6 xl:px-8 py-6 rounded-4xl text-primary-foreground">
-                                <Download className="mr-2 size-5" />
-                                Download App
-                                <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                            </Button>
-
-                            <Button size="lg" variant="outline" className="hover:bg-muted px-4 md:px-6 xl:px-8 py-6 border-border rounded-4xl text-foreground">
-                                Explore Products
-                            </Button>
+                            <Link to="/install">
+                                <Button size="lg" className="group bg-linear-to-r from-primary to-accent hover:opacity-90 px-4 md:px-6 xl:px-8 py-6 rounded-4xl text-primary-foreground">
+                                    <Download className="mr-2 size-5" />
+                                    Download App
+                                    <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                                </Button>
+                            </Link>
+                            <Link to="/create" search={{ ref: undefined }}>
+                                <Button size="lg" variant="outline" className="hover:bg-muted px-4 md:px-6 xl:px-8 py-6 border-border rounded-4xl text-foreground">
+                                    Get Started
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* Trust Badges */}
@@ -125,7 +129,7 @@ export default function HeroSection() {
                                             <p className="font-bold text-foreground text-2xl md:text-3xl xl:text-4xl montserrat">
                                                 $127,842.50
                                             </p>
-                                            <p className="mt-2 text-[11px] text-accent md:text-xs xl:text-sm">
+                                            <p className="mt-2 text-[11px] text-green-500 md:text-xs xl:text-sm">
                                                 +12.4% this week
                                             </p>
                                         </div>
@@ -167,7 +171,7 @@ export default function HeroSection() {
                                                         <p className="font-medium text-[11px] text-foreground md:text-xs xl:text-sm montserrat">
                                                             {asset.value}
                                                         </p>
-                                                        <p className="text-[10px] text-accent md:text-[11px] xl:text-xs">
+                                                        <p className="text-[10px] text-green-500 md:text-[11px] xl:text-xs">
                                                             {asset.change}
                                                         </p>
                                                     </div>

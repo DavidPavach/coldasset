@@ -15,36 +15,42 @@ export default function FeaturesSection() {
             title: "Air-Gapped Security",
             description:
                 "Your private keys never connect to the internet. Complete isolation from online threats.",
+            color: '#3b8de7'
         },
         {
             icon: FingerScan,
             title: "Biometric Authentication",
             description:
                 "Advanced fingerprint and facial recognition ensures only you can access your wallet.",
+            color: '#8b5cf6'
         },
         {
             icon: Lock,
             title: "Multi-Signature Support",
             description:
                 "Require multiple approvals for transactions. Perfect for teams and institutions.",
+            color: '#ec4899'
         },
         {
             icon: RefreshCw,
             title: "Seamless Backup & Recovery",
             description:
                 "Industry-leading recovery options including encrypted cloud backup and seed phrase.",
+            color: '#10b981'
         },
         {
             icon: Mobile,
             title: "Cross-Platform",
             description:
                 "Access your wallet from any device. iOS, Android, Desktop, and Browser Extension.",
+            color: '#f59e0b'
         },
         {
             icon: Zap,
             title: "Instant Transactions",
             description:
                 "Send and receive crypto in seconds with our optimized transaction engine.",
+            color: '#06b6d4'
         },
     ];
 
@@ -84,13 +90,13 @@ export default function FeaturesSection() {
                             viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="group relative">
                             <div className="relative bg-linear-to-br from-card to-background p-8 border border-border hover:border-primary/30 rounded-3xl h-full overflow-hidden transition-all duration-500">
                                 {/* Hover Glow */}
-                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="top-0 right-0 absolute bg-primary/10 blur-2xl rounded-full size-40" />
-                                </div>
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                    style={{ background: `radial-gradient(circle at top right, ${feature.color}10, transparent 50%)` }}
+                                />
 
                                 {/* Icon */}
-                                <div className="relative flex justify-center items-center bg-primary/15 mb-6 rounded-2xl size-10 md:size-12 xl:size-14 group-hover:scale-110 transition-transform">
-                                    <feature.icon className="size-5 md:size-6 xl:size-7 text-primary" variant="Outline" />
+                                <div className="relative flex justify-center items-center mb-6 rounded-2xl size-10 md:size-12 xl:size-14 group-hover:scale-110 transition-transform" style={{ backgroundColor: `${feature.color}15` }}>
+                                    <feature.icon className="size-5 md:size-6 xl:size-7" style={{ color: feature.color }} variant="Outline" />
                                 </div>
 
                                 {/* Content */}

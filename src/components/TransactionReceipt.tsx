@@ -40,19 +40,19 @@ const STATUS_CONFIG = {
 const TYPE_CONFIG = {
     sent: {
         icon: ArrowUpRight,
-        color: 'text-red-600 bg-red-50 dark:bg-red-950/30',
+        color: 'text-red-600 bg-red-100 dark:bg-red-950',
         label: 'Sent',
         sign: '-'
     },
     received: {
         icon: ArrowDownLeft,
-        color: 'text-green-600 bg-green-50 dark:bg-green-950/30',
+        color: 'text-green-600 bg-green-100 dark:bg-green-950',
         label: 'Received',
         sign: '+'
     },
     swap: {
         icon: ArrowRightLeft,
-        color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/30',
+        color: 'text-blue-600 bg-blue-100 dark:bg-blue-950',
         label: 'Swap',
         sign: ''
     }

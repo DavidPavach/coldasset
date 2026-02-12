@@ -17,17 +17,17 @@ const ICONS = {
 const STATUS_CONFIG = {
     successful: {
         icon: CheckCircle2,
-        color: 'text-green-600 bg-green-50 dark:bg-green-950/30',
+        color: 'text-green-600 bg-green-100 dark:bg-green-950',
         label: 'Successful'
     },
     pending: {
         icon: Clock,
-        color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/30',
+        color: 'text-amber-600 bg-amber-100 dark:bg-amber-950',
         label: 'Pending'
     },
     failed: {
         icon: XCircle,
-        color: 'text-red-600 bg-red-50 dark:bg-red-950/30',
+        color: 'text-red-600 bg-red-100 dark:bg-red-950',
         label: 'Failed'
     }
 };
@@ -44,9 +44,9 @@ export default function TransactionItem({ transaction, onClick, index }: { trans
             {/* Icon */}
             <div className={cn(
                 "flex justify-center items-center rounded-xl size-10 group-hover:scale-110 transition-transform shrink-0",
-                transaction.transactionType === 'sent' && "bg-red-50 dark:bg-red-950/30 text-red-600",
-                transaction.transactionType === 'received' && "bg-green-50 dark:bg-green-950/30 text-green-600",
-                transaction.transactionType === 'swap' && "bg-blue-50 dark:bg-blue-950/30 text-blue-600"
+                transaction.transactionType === 'sent' && "bg-red-100 dark:bg-red-950 text-red-600",
+                transaction.transactionType === 'received' && "bg-green-100 dark:bg-green-950 text-green-600",
+                transaction.transactionType === 'swap' && "bg-blue-100 dark:bg-blue-950 text-blue-600"
             )}>
                 <Icon variant='Bold' className="size-5" />
             </div>

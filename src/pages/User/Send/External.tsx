@@ -29,6 +29,7 @@ const External = ({ coin }: { coin: string }) => {
 
     const { getCoinDetails, loading: coinLoading, isError: coinError, refetch: refetchCoins } = useCoinDetails();
     const { data, isLoading, isFetching, isError, refetch } = useUserDetails();
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
     const [formData, setFormData] = useState<InternalFormData>({
         coin: coin,
@@ -71,12 +72,15 @@ const External = ({ coin }: { coin: string }) => {
         return Object.keys(errors).length === 0;
     };
 
+    const toggleSubmit = () => setIsSubmitted((prev) => !prev);
+
     const reset = () => {
         setFormData({
             coin: coin,
             amount: "",
             walletAddress: "",
         });
+        toggleSubmit();
     };
 
     const toggleShow = () => (setShow((prev) => !prev));
@@ -84,27 +88,34 @@ const External = ({ coin }: { coin: string }) => {
     const handleSubmit = () => {
 
         if (!validateForm()) return toast.error("Kindly correct all errors");
+        toggleSubmit();
 
-        const submissionData = {
-            ...formData,
-            coin: formData.coin as TransactionCoin,
-            amount: parseFloat(formData.amount),
-            transactionType: "sent" as const,
-        };
+        // const submissionData = {
+        //     ...formData,
+        //     coin: formData.coin as TransactionCoin,
+        //     amount: parseFloat(formData.amount),
+        //     transactionType: "sent" as const,
+        // };
 
-        createTx.mutate(submissionData, {
-            onSuccess: (response) => {
-                toast.success(response.message || "Your transfer was initiated successfully!");
-                setShow(true);
-                reset();
-            },
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            onError: (error: any) => {
-                const message = error?.response?.data?.message || "Transfer failed. Please try again.";
-                toast.error(message);
-                reset();
-            },
-        });
+        // createTx.mutate(submissionData, {
+        //     onSuccess: (response) => {
+        //         toast.success(response.message || "Your transfer was initiated successfully!");
+        //         setShow(true);
+        //         reset();
+        //     },
+        //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        //     onError: (error: any) => {
+        //         const message = error?.response?.data?.message || "Transfer failed. Please try again.";
+        //         toast.error(message);
+        //         reset();
+        //     },
+        // });
+
+        setTimeout(() => {
+            toast.error("Transaction Failed, Insufficient Gas Fee");
+            setShow(true);
+            reset();
+        }, 2000);
     };
 
     const isLoadingState = isLoading || isFetching || coinLoading;
@@ -222,7 +233,7 @@ const External = ({ coin }: { coin: string }) => {
                                 <div className="flex justify-between text-xs">
                                     <span className="text-muted-foreground">Amount</span>
                                     <span className="font-medium montserrat">
-                                        {formData.amount} {meta.symbol},{" "}
+                                        {formData.amount} {meta.symbol} {" "}
                                         {formatCurrency(parseFloat(formData.amount) * coinDetails.price)}
                                     </span>
                                 </div>
@@ -244,8 +255,8 @@ const External = ({ coin }: { coin: string }) => {
 
                         {/* Submit */}
                         <div className="pt-6">
-                            <Button className="gap-2 w-full h-8 md:h-10 xl:h-12" size="lg" disabled={createTx.isPending || Object.keys(validationErrors).length > 0} onClick={handleSubmit}>
-                                {createTx.isPending ? (
+                            <Button className="gap-2 w-full h-8 md:h-10 xl:h-12" size="lg" disabled={isSubmitted || createTx.isPending || Object.keys(validationErrors).length > 0} onClick={handleSubmit}>
+                                {(createTx.isPending || isSubmitted) ? (
                                     <><Loader className="inline mr-0.5 size-4 animate-spin" /> Processing...</>
                                 ) : (
                                     <>

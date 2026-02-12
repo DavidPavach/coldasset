@@ -24,6 +24,8 @@ import { Route as UserDiscoverRouteImport } from './routes/_user/discover'
 import { Route as UserDashboardRouteImport } from './routes/_user/dashboard'
 import { Route as UserConnectWalletRouteImport } from './routes/_user/connect-wallet'
 import { Route as UserCoinRouteImport } from './routes/_user/coin'
+import { Route as HomeSecurityRouteImport } from './routes/_home/security'
+import { Route as HomeInstallRouteImport } from './routes/_home/install'
 import { Route as HomeFeaturesRouteImport } from './routes/_home/features'
 import { Route as AuthVerificationRouteImport } from './routes/_auth/verification'
 import { Route as AuthPassphraseVerificationRouteImport } from './routes/_auth/passphrase-verification'
@@ -112,6 +114,16 @@ const UserCoinRoute = UserCoinRouteImport.update({
   id: '/coin',
   path: '/coin',
   getParentRoute: () => UserRouteRoute,
+} as any)
+const HomeSecurityRoute = HomeSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeInstallRoute = HomeInstallRouteImport.update({
+  id: '/install',
+  path: '/install',
+  getParentRoute: () => HomeRouteRoute,
 } as any)
 const HomeFeaturesRoute = HomeFeaturesRouteImport.update({
   id: '/features',
@@ -218,6 +230,8 @@ export interface FileRoutesByFullPath {
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
   '/features': typeof HomeFeaturesRoute
+  '/install': typeof HomeInstallRoute
+  '/security': typeof HomeSecurityRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -248,6 +262,8 @@ export interface FileRoutesByTo {
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
   '/features': typeof HomeFeaturesRoute
+  '/install': typeof HomeInstallRoute
+  '/security': typeof HomeSecurityRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -283,6 +299,8 @@ export interface FileRoutesById {
   '/_auth/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/_auth/verification': typeof AuthVerificationRoute
   '/_home/features': typeof HomeFeaturesRoute
+  '/_home/install': typeof HomeInstallRoute
+  '/_home/security': typeof HomeSecurityRoute
   '/_user/coin': typeof UserCoinRoute
   '/_user/connect-wallet': typeof UserConnectWalletRoute
   '/_user/dashboard': typeof UserDashboardRoute
@@ -315,6 +333,8 @@ export interface FileRouteTypes {
     | '/passphrase-verification'
     | '/verification'
     | '/features'
+    | '/install'
+    | '/security'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -345,6 +365,8 @@ export interface FileRouteTypes {
     | '/passphrase-verification'
     | '/verification'
     | '/features'
+    | '/install'
+    | '/security'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -379,6 +401,8 @@ export interface FileRouteTypes {
     | '/_auth/passphrase-verification'
     | '/_auth/verification'
     | '/_home/features'
+    | '/_home/install'
+    | '/_home/security'
     | '/_user/coin'
     | '/_user/connect-wallet'
     | '/_user/dashboard'
@@ -505,6 +529,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/coin'
       preLoaderRoute: typeof UserCoinRouteImport
       parentRoute: typeof UserRouteRoute
+    }
+    '/_home/security': {
+      id: '/_home/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof HomeSecurityRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/_home/install': {
+      id: '/_home/install'
+      path: '/install'
+      fullPath: '/install'
+      preLoaderRoute: typeof HomeInstallRouteImport
+      parentRoute: typeof HomeRouteRoute
     }
     '/_home/features': {
       id: '/_home/features'
@@ -682,11 +720,15 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 
 interface HomeRouteRouteChildren {
   HomeFeaturesRoute: typeof HomeFeaturesRoute
+  HomeInstallRoute: typeof HomeInstallRoute
+  HomeSecurityRoute: typeof HomeSecurityRoute
   HomeIndexRoute: typeof HomeIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
   HomeFeaturesRoute: HomeFeaturesRoute,
+  HomeInstallRoute: HomeInstallRoute,
+  HomeSecurityRoute: HomeSecurityRoute,
   HomeIndexRoute: HomeIndexRoute,
 }
 
