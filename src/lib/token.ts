@@ -43,7 +43,7 @@ export const deleteId = () => {
 }
 
 
-//Save Admin Token
+// Save Admin Token
 export const setAdminTokens = (accessToken: string) => {
   Cookies.set("node.idx", accessToken, {
     secure: true,

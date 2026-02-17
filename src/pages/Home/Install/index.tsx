@@ -191,16 +191,16 @@ export default function Installation() {
                     </motion.div>
 
                     <Tabs defaultValue="ios" className="mx-auto max-w-6xl">
-                        <TabsList className="grid grid-cols-3 bg-muted mb-12 p-1.5 rounded-xl w-full">
-                            <TabsTrigger value="ios" className="data-[state=active]:bg-card py-2 rounded-lg">
+                        <TabsList className="grid grid-cols-3 bg-muted mb-12 px-1 rounded-xl w-full">
+                            <TabsTrigger value="ios" className="data-[state=active]:bg-card rounded-lg">
                                 <Apple className="mr-0.5 size-5" />
                                 iPhone/iPad
                             </TabsTrigger>
-                            <TabsTrigger value="android" className="data-[state=active]:bg-card py-2 rounded-lg">
+                            <TabsTrigger value="android" className="data-[state=active]:bg-card rounded-lg">
                                 <Mobile className="mr-0.5 size-5" />
                                 Android
                             </TabsTrigger>
-                            <TabsTrigger value="desktop" className="data-[state=active]:bg-card py-2 rounded-lg">
+                            <TabsTrigger value="desktop" className="data-[state=active]:bg-card rounded-lg">
                                 <Monitor className="mr-0.5 size-5" />
                                 Desktop
                             </TabsTrigger>
@@ -218,7 +218,7 @@ export default function Installation() {
                                     <div className="space-y-6">
                                         {iosSteps.map((step, index) => (
                                             <motion.div key={index} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                                                transition={{ delay: index * 0.1 }} className="flex items-start gap-6 bg-muted/50 p-4 rounded-xl">
+                                                transition={{ delay: index * 0.1 }} className="flex items-start gap-6 bg-muted/50 p-2 md:p-3 xl:p-4 rounded-xl">
                                                 <div className="flex justify-center items-center bg-primary rounded-full size-12 font-bold text-primary-foreground text-sm md:text-base xl:text-lg shrink-0">
                                                     {step.step}
                                                 </div>
@@ -239,7 +239,7 @@ export default function Installation() {
                         </TabsContent>
 
                         <TabsContent value="android">
-                            <Card className="border-border">
+                            <Card className="pt-0 border-border">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-3">
                                         <Chrome className="size-6" />
@@ -271,7 +271,7 @@ export default function Installation() {
                         </TabsContent>
 
                         <TabsContent value="desktop">
-                            <Card className="border-border">
+                            <Card className="pt-0 border-border">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-3">
                                         <Monitor className="size-6" />
@@ -311,23 +311,23 @@ export default function Installation() {
                         </motion.div>
 
                         <div className="gap-6 grid md:grid-cols-3">
-                            <Card className="border-border">
+                            <Card className="pt-0 border-border">
                                 <CardContent className="p-4 md:p-5 xl:p-6">
-                                    <Apple className="mx-auto mb-4 size-10" />
+                                    <Apple className="mx-auto mb-4 xl:size-10 text-6 md:text-8" />
                                     <h3 className="mb-2 font-semibold">iOS</h3>
                                     <p className="text-muted-foreground text-sm">iOS 11.3+ with Safari browser</p>
                                 </CardContent>
                             </Card>
-                            <Card className="border-border">
+                            <Card className="pt-0 border-border">
                                 <CardContent className="p-4 md:p-5 xl:p-6">
-                                    <Mobile className="mx-auto mb-4 size-10" />
+                                    <Mobile className="mx-auto mb-4 xl:size-10 text-6 md:text-8" />
                                     <h3 className="mb-2 font-semibold">Android</h3>
                                     <p className="text-muted-foreground text-sm">Android 5.0+ with Chrome browser</p>
                                 </CardContent>
                             </Card>
-                            <Card className="border-border">
+                            <Card className="pt-0 border-border">
                                 <CardContent className="p-4 md:p-5 xl:p-6">
-                                    <Monitor className="mx-auto mb-4 size-10" />
+                                    <Monitor className="mx-auto mb-4 xl:size-10 text-6 md:text-8" />
                                     <h3 className="mb-2 font-semibold">Desktop</h3>
                                     <p className="text-muted-foreground text-sm">Chrome, Edge, or Brave browser</p>
                                 </CardContent>

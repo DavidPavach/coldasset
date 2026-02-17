@@ -37,8 +37,9 @@ export default function Navbar() {
             <div className="mx-auto px-4 md:px-6 xl:px-8 max-w-7xl">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
-                    <img src="/logo1.png" alt="Logo" className="w-10" />
-
+                    <Link to="/">
+                        <img src="/logo1.png" alt="Logo" className="w-10 cursor-pointer" />
+                    </Link>
                     {/* Desktop Nav */}
                     <div className="hidden lg:flex items-center gap-1">
                         {navLinks.map((link) => (

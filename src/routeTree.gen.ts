@@ -27,6 +27,7 @@ import { Route as UserCoinRouteImport } from './routes/_user/coin'
 import { Route as HomeSecurityRouteImport } from './routes/_home/security'
 import { Route as HomeInstallRouteImport } from './routes/_home/install'
 import { Route as HomeFeaturesRouteImport } from './routes/_home/features'
+import { Route as HomeContactRouteImport } from './routes/_home/contact'
 import { Route as AuthVerificationRouteImport } from './routes/_auth/verification'
 import { Route as AuthPassphraseVerificationRouteImport } from './routes/_auth/passphrase-verification'
 import { Route as AuthPassphraseRouteImport } from './routes/_auth/passphrase'
@@ -130,6 +131,11 @@ const HomeFeaturesRoute = HomeFeaturesRouteImport.update({
   path: '/features',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeContactRoute = HomeContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const AuthVerificationRoute = AuthVerificationRouteImport.update({
   id: '/verification',
   path: '/verification',
@@ -229,6 +235,7 @@ export interface FileRoutesByFullPath {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/contact': typeof HomeContactRoute
   '/features': typeof HomeFeaturesRoute
   '/install': typeof HomeInstallRoute
   '/security': typeof HomeSecurityRoute
@@ -261,6 +268,7 @@ export interface FileRoutesByTo {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/contact': typeof HomeContactRoute
   '/features': typeof HomeFeaturesRoute
   '/install': typeof HomeInstallRoute
   '/security': typeof HomeSecurityRoute
@@ -298,6 +306,7 @@ export interface FileRoutesById {
   '/_auth/passphrase': typeof AuthPassphraseRoute
   '/_auth/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/_auth/verification': typeof AuthVerificationRoute
+  '/_home/contact': typeof HomeContactRoute
   '/_home/features': typeof HomeFeaturesRoute
   '/_home/install': typeof HomeInstallRoute
   '/_home/security': typeof HomeSecurityRoute
@@ -332,6 +341,7 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/contact'
     | '/features'
     | '/install'
     | '/security'
@@ -364,6 +374,7 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/contact'
     | '/features'
     | '/install'
     | '/security'
@@ -400,6 +411,7 @@ export interface FileRouteTypes {
     | '/_auth/passphrase'
     | '/_auth/passphrase-verification'
     | '/_auth/verification'
+    | '/_home/contact'
     | '/_home/features'
     | '/_home/install'
     | '/_home/security'
@@ -549,6 +561,13 @@ declare module '@tanstack/react-router' {
       path: '/features'
       fullPath: '/features'
       preLoaderRoute: typeof HomeFeaturesRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/_home/contact': {
+      id: '/_home/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof HomeContactRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/_auth/verification': {
@@ -719,6 +738,7 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 )
 
 interface HomeRouteRouteChildren {
+  HomeContactRoute: typeof HomeContactRoute
   HomeFeaturesRoute: typeof HomeFeaturesRoute
   HomeInstallRoute: typeof HomeInstallRoute
   HomeSecurityRoute: typeof HomeSecurityRoute
@@ -726,6 +746,7 @@ interface HomeRouteRouteChildren {
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
+  HomeContactRoute: HomeContactRoute,
   HomeFeaturesRoute: HomeFeaturesRoute,
   HomeInstallRoute: HomeInstallRoute,
   HomeSecurityRoute: HomeSecurityRoute,

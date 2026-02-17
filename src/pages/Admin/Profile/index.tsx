@@ -1,5 +1,3 @@
-// src/pages/profile/index.tsx
-
 import { useGetCurrentAdmin } from "@/services/queries.service";
 import { formatDate } from "@/utils/format";
 
