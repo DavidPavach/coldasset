@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 // Components
 import { Button } from "@/components/ui/button";
@@ -84,14 +85,18 @@ export default function DownloadSection() {
 
                             {/* CTA Buttons */}
                             <div className="flex sm:flex-row flex-col sm:justify-center lg:justify-start gap-4">
-                                <Button size="lg" className="group bg-linear-to-r from-primary to-accent hover:opacity-90 px-8 py-6 rounded-4xl text-primary-foreground">
-                                    Download for Free
-                                    <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
-                                </Button>
+                                <Link to="/install">
+                                    <Button size="lg" className="group bg-linear-to-r from-primary to-accent hover:opacity-90 px-8 py-6 rounded-4xl text-primary-foreground">
+                                        Download for Free
+                                        <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                                    </Button>
+                                </Link>
 
-                                <Button size="lg" variant="outline" className="hover:bg-muted px-8 py-6 border-border rounded-4xl text-foreground" >
-                                    View All Platforms
-                                </Button>
+                                <Link to="/install">
+                                    <Button size="lg" variant="outline" className="hover:bg-muted px-8 py-6 border-border rounded-4xl text-foreground" >
+                                        View All Platforms
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
 

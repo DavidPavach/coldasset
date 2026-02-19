@@ -119,13 +119,15 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* CTA */}
-                <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-16 text-center">
-                    <Button size="lg"
-                        className="bg-linear-to-r from-primary to-accent hover:opacity-90 px-4 md:px-6 xl:px-8 py-6 rounded-4xl text-primary-foreground">
-                        Explore All Features
-                        <ArrowRight className="ml-2 size-4" />
-                    </Button>
-                </motion.div>
+                <Link to="/features">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-16 text-center">
+                        <Button size="lg"
+                            className="bg-linear-to-r from-primary to-accent hover:opacity-90 px-4 md:px-6 xl:px-8 py-6 rounded-4xl text-primary-foreground">
+                            Explore All Features
+                            <ArrowRight className="ml-2 size-4" />
+                        </Button>
+                    </motion.div>
+                </Link>
             </div>
         </section>
     );

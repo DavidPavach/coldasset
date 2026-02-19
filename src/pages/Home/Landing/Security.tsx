@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 // Components
 import { Button } from "@/components/ui/button";
@@ -161,10 +162,11 @@ export default function SecuritySection() {
                                 ))}
                             </div>
                         </div>
-
-                        <Button  size="lg" className="bg-linear-to-r from-primary to-accent hover:opacity-90 px-8 py-6 rounded-4xl text-primary-foreground">
-                            Learn About Our Security
-                        </Button>
+                        <Link to="/security">
+                            <Button size="lg" className="bg-linear-to-r from-primary to-accent hover:opacity-90 px-8 py-6 rounded-4xl text-primary-foreground">
+                                Learn About Our Security
+                            </Button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
