@@ -10,11 +10,9 @@ export default function Footer() {
         ],
         Company: [
             { name: "Features", href: "/features" },
-            { name: "Careers", href: "/careers" },
             { name: "Contact", href: "/contact" },
         ],
         Resources: [
-            { name: "Documentation", href: "/docs" },
             { name: "Help Center", href: "/contact" },
             { name: "Security", href: "/security" },
         ],
