@@ -24,10 +24,14 @@ import { Route as UserDiscoverRouteImport } from './routes/_user/discover'
 import { Route as UserDashboardRouteImport } from './routes/_user/dashboard'
 import { Route as UserConnectWalletRouteImport } from './routes/_user/connect-wallet'
 import { Route as UserCoinRouteImport } from './routes/_user/coin'
+import { Route as HomeTermsRouteImport } from './routes/_home/terms'
 import { Route as HomeSecurityRouteImport } from './routes/_home/security'
+import { Route as HomePrivacyRouteImport } from './routes/_home/privacy'
 import { Route as HomeInstallRouteImport } from './routes/_home/install'
 import { Route as HomeFeaturesRouteImport } from './routes/_home/features'
+import { Route as HomeCookieRouteImport } from './routes/_home/cookie'
 import { Route as HomeContactRouteImport } from './routes/_home/contact'
+import { Route as HomeComplianceRouteImport } from './routes/_home/compliance'
 import { Route as AuthVerificationRouteImport } from './routes/_auth/verification'
 import { Route as AuthPassphraseVerificationRouteImport } from './routes/_auth/passphrase-verification'
 import { Route as AuthPassphraseRouteImport } from './routes/_auth/passphrase'
@@ -116,9 +120,19 @@ const UserCoinRoute = UserCoinRouteImport.update({
   path: '/coin',
   getParentRoute: () => UserRouteRoute,
 } as any)
+const HomeTermsRoute = HomeTermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const HomeSecurityRoute = HomeSecurityRouteImport.update({
   id: '/security',
   path: '/security',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomePrivacyRoute = HomePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const HomeInstallRoute = HomeInstallRouteImport.update({
@@ -131,9 +145,19 @@ const HomeFeaturesRoute = HomeFeaturesRouteImport.update({
   path: '/features',
   getParentRoute: () => HomeRouteRoute,
 } as any)
+const HomeCookieRoute = HomeCookieRouteImport.update({
+  id: '/cookie',
+  path: '/cookie',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
 const HomeContactRoute = HomeContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => HomeRouteRoute,
+} as any)
+const HomeComplianceRoute = HomeComplianceRouteImport.update({
+  id: '/compliance',
+  path: '/compliance',
   getParentRoute: () => HomeRouteRoute,
 } as any)
 const AuthVerificationRoute = AuthVerificationRouteImport.update({
@@ -235,10 +259,14 @@ export interface FileRoutesByFullPath {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/compliance': typeof HomeComplianceRoute
   '/contact': typeof HomeContactRoute
+  '/cookie': typeof HomeCookieRoute
   '/features': typeof HomeFeaturesRoute
   '/install': typeof HomeInstallRoute
+  '/privacy': typeof HomePrivacyRoute
   '/security': typeof HomeSecurityRoute
+  '/terms': typeof HomeTermsRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -268,10 +296,14 @@ export interface FileRoutesByTo {
   '/passphrase': typeof AuthPassphraseRoute
   '/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/verification': typeof AuthVerificationRoute
+  '/compliance': typeof HomeComplianceRoute
   '/contact': typeof HomeContactRoute
+  '/cookie': typeof HomeCookieRoute
   '/features': typeof HomeFeaturesRoute
   '/install': typeof HomeInstallRoute
+  '/privacy': typeof HomePrivacyRoute
   '/security': typeof HomeSecurityRoute
+  '/terms': typeof HomeTermsRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -306,10 +338,14 @@ export interface FileRoutesById {
   '/_auth/passphrase': typeof AuthPassphraseRoute
   '/_auth/passphrase-verification': typeof AuthPassphraseVerificationRoute
   '/_auth/verification': typeof AuthVerificationRoute
+  '/_home/compliance': typeof HomeComplianceRoute
   '/_home/contact': typeof HomeContactRoute
+  '/_home/cookie': typeof HomeCookieRoute
   '/_home/features': typeof HomeFeaturesRoute
   '/_home/install': typeof HomeInstallRoute
+  '/_home/privacy': typeof HomePrivacyRoute
   '/_home/security': typeof HomeSecurityRoute
+  '/_home/terms': typeof HomeTermsRoute
   '/_user/coin': typeof UserCoinRoute
   '/_user/connect-wallet': typeof UserConnectWalletRoute
   '/_user/dashboard': typeof UserDashboardRoute
@@ -341,10 +377,14 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/compliance'
     | '/contact'
+    | '/cookie'
     | '/features'
     | '/install'
+    | '/privacy'
     | '/security'
+    | '/terms'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -374,10 +414,14 @@ export interface FileRouteTypes {
     | '/passphrase'
     | '/passphrase-verification'
     | '/verification'
+    | '/compliance'
     | '/contact'
+    | '/cookie'
     | '/features'
     | '/install'
+    | '/privacy'
     | '/security'
+    | '/terms'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -411,10 +455,14 @@ export interface FileRouteTypes {
     | '/_auth/passphrase'
     | '/_auth/passphrase-verification'
     | '/_auth/verification'
+    | '/_home/compliance'
     | '/_home/contact'
+    | '/_home/cookie'
     | '/_home/features'
     | '/_home/install'
+    | '/_home/privacy'
     | '/_home/security'
+    | '/_home/terms'
     | '/_user/coin'
     | '/_user/connect-wallet'
     | '/_user/dashboard'
@@ -542,11 +590,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UserCoinRouteImport
       parentRoute: typeof UserRouteRoute
     }
+    '/_home/terms': {
+      id: '/_home/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof HomeTermsRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
     '/_home/security': {
       id: '/_home/security'
       path: '/security'
       fullPath: '/security'
       preLoaderRoute: typeof HomeSecurityRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/_home/privacy': {
+      id: '/_home/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof HomePrivacyRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/_home/install': {
@@ -563,11 +625,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HomeFeaturesRouteImport
       parentRoute: typeof HomeRouteRoute
     }
+    '/_home/cookie': {
+      id: '/_home/cookie'
+      path: '/cookie'
+      fullPath: '/cookie'
+      preLoaderRoute: typeof HomeCookieRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
     '/_home/contact': {
       id: '/_home/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof HomeContactRouteImport
+      parentRoute: typeof HomeRouteRoute
+    }
+    '/_home/compliance': {
+      id: '/_home/compliance'
+      path: '/compliance'
+      fullPath: '/compliance'
+      preLoaderRoute: typeof HomeComplianceRouteImport
       parentRoute: typeof HomeRouteRoute
     }
     '/_auth/verification': {
@@ -738,18 +814,26 @@ const AuthRouteRouteWithChildren = AuthRouteRoute._addFileChildren(
 )
 
 interface HomeRouteRouteChildren {
+  HomeComplianceRoute: typeof HomeComplianceRoute
   HomeContactRoute: typeof HomeContactRoute
+  HomeCookieRoute: typeof HomeCookieRoute
   HomeFeaturesRoute: typeof HomeFeaturesRoute
   HomeInstallRoute: typeof HomeInstallRoute
+  HomePrivacyRoute: typeof HomePrivacyRoute
   HomeSecurityRoute: typeof HomeSecurityRoute
+  HomeTermsRoute: typeof HomeTermsRoute
   HomeIndexRoute: typeof HomeIndexRoute
 }
 
 const HomeRouteRouteChildren: HomeRouteRouteChildren = {
+  HomeComplianceRoute: HomeComplianceRoute,
   HomeContactRoute: HomeContactRoute,
+  HomeCookieRoute: HomeCookieRoute,
   HomeFeaturesRoute: HomeFeaturesRoute,
   HomeInstallRoute: HomeInstallRoute,
+  HomePrivacyRoute: HomePrivacyRoute,
   HomeSecurityRoute: HomeSecurityRoute,
+  HomeTermsRoute: HomeTermsRoute,
   HomeIndexRoute: HomeIndexRoute,
 }
 

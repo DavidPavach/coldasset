@@ -1,15 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary -->
+  <title>Cold Asset — Secure Crypto Wallet</title>
+  <meta name="description" content="Cold Asset is a secure cryptocurrency wallet web app (PWA) with fast performance, offline-ready support, and a native-like install experience on mobile and desktop." />
+
+  <!-- Theme / PWA -->
+  <meta name="theme-color" content="#0b0f19" />
+  <meta name="application-name" content="Cold Asset" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Cold Asset" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Icons -->
   <link rel="icon" href="/favicon.ico" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Cold Asset Web App" />
-  <link rel="apple-touch-icon" href="/logo1.png" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Cold Asset App</title>
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dpmx02shl/image/upload/v1771490783/logo_wl4eub.png" />
+
+  <!-- Canonical (replace with your real domain) -->
+  <link rel="canonical" href="https://cold-asset.com" />
+
+  <!-- Crawling / snippets (Google-supported robots directives) -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cold Asset" />
+  <meta property="og:title" content="Cold Asset — Secure Crypto Wallet (PWA)" />
+  <meta property="og:description" content="Install Cold Asset as a PWA for a fast, secure, native-like crypto wallet experience." />
+  <meta property="og:url" content="https://cold-asset.com" />
+  <meta property="og:image" content="https://res.cloudinary.com/dpmx02shl/image/upload/v1771490783/logo_wl4eub.png" />
+  <meta property="og:image:alt" content="Cold Asset logo" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cold Asset — Secure Crypto Wallet (PWA)" />
+  <meta name="twitter:description" content="Install Cold Asset as a PWA for a fast, secure, native-like crypto wallet experience." />
+  <meta name="twitter:image" content="https://res.cloudinary.com/dpmx02shl/image/upload/v1771490783/logo_wl4eub.png" />
+
+  <!-- Structured data (Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cold Asset",
+    "url": "https://cold-asset.com",
+    "description": "Cold Asset is a secure cryptocurrency wallet web app (PWA).",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cold Asset",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dpmx02shl/image/upload/v1771490783/logo_wl4eub.png"
+      }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cold Asset",
+    "url": "https://cold-asset.com",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Android, iOS, Windows, macOS, Linux",
+    "browserRequirements": "Requires JavaScript. Works best as an installed PWA.",
+    "description": "Secure cryptocurrency wallet web app (PWA) with install support across devices.",
+    "image": "https://res.cloudinary.com/dpmx02shl/image/upload/v1771490783/logo_wl4eub.png"
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,5 +85,4 @@
   <div id="app"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
-
 </html>

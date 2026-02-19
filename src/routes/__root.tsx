@@ -9,6 +9,7 @@ import { ThemeProviderEffect } from '@/components/ThemeProvider';
 
 // Components
 import NotFound from '@/pages/NotFound';
+import Smartsupp from '@/components/Smartsupps';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,6 +32,7 @@ export const Route = createRootRoute({
       <Outlet />
       <ToastContainer position="top-center" isPausedOnHover={true} duration={5000} />
       <ThemeProviderEffect />
+      <Smartsupp />
       <TanStackDevtools config={{ position: 'bottom-right' }} plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel />, }]} />
     </QueryClientProvider>
   ),

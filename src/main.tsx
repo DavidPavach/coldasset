@@ -1,6 +1,10 @@
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
+import { toast } from 'react-fox-toast';
+
+// @ts-ignore
+import { registerSW } from "virtual:pwa-register";
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen'
@@ -24,6 +28,36 @@ declare module '@tanstack/react-router' {
     router: typeof router
   }
 }
+
+// Register PWA
+const updateSW = registerSW({
+  immediate: true,
+
+  onOfflineReady() {
+    toast.success("Offline ready. You can use Cold Asset without internet.");
+  },
+
+  onNeedRefresh() {
+    toast.custom(
+      <div className="flex items-center gap-x-4 bg-blue-100 px-3 py-2 text-xs md:text-sm xl:text-base">
+        <p>✨ New version available!</p>
+        <button onClick={() => { updateSW(true) }}
+          className="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-lg font-medium text-white text-xs">
+          Reload
+        </button>
+      </div>,
+      {
+        position: "top-center",
+        duration: 10000,
+        icon: "🔔",
+      }
+    );
+  },
+
+  onRegisterError(error: Error) {
+    console.warn("[PWA] SW register error:", error);
+  },
+});
 
 // Render the app
 const rootElement = document.getElementById('app')

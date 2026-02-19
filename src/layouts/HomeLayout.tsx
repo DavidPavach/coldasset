@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main>
+        <main className="overflow-x-hidden">
             <HomeNav />
             <section className="pt-20">
                 {children}
