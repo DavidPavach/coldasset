@@ -96,6 +96,30 @@ declare type NewsArticle = {
     image_url?: string;
 }
 
+//Featured Exchange
+declare type FeaturedExchangeProps = {
+    name: string;
+    logo: string;
+    description: string;
+    videoId: string;
+    url: string;
+    features: string[];
+}
+
+//Exchange
+declare type ExchangeCardProps = {
+    name: string;
+    logo: string;
+    description: string;
+    videoId: string;
+    features: string[];
+    paymentMethods: string[];
+    processingTime: string;
+    securityLevel: "high" | "medium" | "low";
+    url: string;
+}
+
+
 // Admin
 type UserBrief = {
     _id: string;

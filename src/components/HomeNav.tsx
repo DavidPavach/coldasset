@@ -87,13 +87,17 @@ export default function Navbar() {
                             ))}
 
                             <div className="space-y-3 pt-4">
-                                <Button variant="outline" className="hover:bg-muted border-border w-full text-foreground">
-                                    Sign In
-                                </Button>
+                                <Link to="/login">
+                                    <Button variant="outline" className="hover:bg-muted border-border w-full text-foreground">
+                                        Sign In
+                                    </Button>
+                                </Link>
 
-                                <Button className="bg-linear-to-r from-primary to-accent w-full text-primary-foreground">
-                                    Get Started
-                                </Button>
+                                <Link to="/create" search={{ ref: undefined }}>
+                                    <Button className="bg-linear-to-r from-primary to-accent w-full text-primary-foreground">
+                                        Get Started
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>

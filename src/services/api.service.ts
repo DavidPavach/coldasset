@@ -178,6 +178,7 @@ export const adminGetUserFn = async (value: string) => {
     return response.data;
 }
 
+// Get User Full Details
 export const adminGetUserFullFn = async (value: string, full: string) => {
     const response = await axiosAdmin.get<GetAdminUserResponse1>(`users/getUser/${value}?full=${full}`);
     return response.data;

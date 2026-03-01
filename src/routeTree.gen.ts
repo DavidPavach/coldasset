@@ -24,6 +24,7 @@ import { Route as UserDiscoverRouteImport } from './routes/_user/discover'
 import { Route as UserDashboardRouteImport } from './routes/_user/dashboard'
 import { Route as UserConnectWalletRouteImport } from './routes/_user/connect-wallet'
 import { Route as UserCoinRouteImport } from './routes/_user/coin'
+import { Route as UserBuyRouteImport } from './routes/_user/buy'
 import { Route as HomeTermsRouteImport } from './routes/_home/terms'
 import { Route as HomeSecurityRouteImport } from './routes/_home/security'
 import { Route as HomePrivacyRouteImport } from './routes/_home/privacy'
@@ -118,6 +119,11 @@ const UserConnectWalletRoute = UserConnectWalletRouteImport.update({
 const UserCoinRoute = UserCoinRouteImport.update({
   id: '/coin',
   path: '/coin',
+  getParentRoute: () => UserRouteRoute,
+} as any)
+const UserBuyRoute = UserBuyRouteImport.update({
+  id: '/buy',
+  path: '/buy',
   getParentRoute: () => UserRouteRoute,
 } as any)
 const HomeTermsRoute = HomeTermsRouteImport.update({
@@ -267,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof HomePrivacyRoute
   '/security': typeof HomeSecurityRoute
   '/terms': typeof HomeTermsRoute
+  '/buy': typeof UserBuyRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -304,6 +311,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof HomePrivacyRoute
   '/security': typeof HomeSecurityRoute
   '/terms': typeof HomeTermsRoute
+  '/buy': typeof UserBuyRoute
   '/coin': typeof UserCoinRoute
   '/connect-wallet': typeof UserConnectWalletRoute
   '/dashboard': typeof UserDashboardRoute
@@ -346,6 +354,7 @@ export interface FileRoutesById {
   '/_home/privacy': typeof HomePrivacyRoute
   '/_home/security': typeof HomeSecurityRoute
   '/_home/terms': typeof HomeTermsRoute
+  '/_user/buy': typeof UserBuyRoute
   '/_user/coin': typeof UserCoinRoute
   '/_user/connect-wallet': typeof UserConnectWalletRoute
   '/_user/dashboard': typeof UserDashboardRoute
@@ -385,6 +394,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/security'
     | '/terms'
+    | '/buy'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -422,6 +432,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/security'
     | '/terms'
+    | '/buy'
     | '/coin'
     | '/connect-wallet'
     | '/dashboard'
@@ -463,6 +474,7 @@ export interface FileRouteTypes {
     | '/_home/privacy'
     | '/_home/security'
     | '/_home/terms'
+    | '/_user/buy'
     | '/_user/coin'
     | '/_user/connect-wallet'
     | '/_user/dashboard'
@@ -588,6 +600,13 @@ declare module '@tanstack/react-router' {
       path: '/coin'
       fullPath: '/coin'
       preLoaderRoute: typeof UserCoinRouteImport
+      parentRoute: typeof UserRouteRoute
+    }
+    '/_user/buy': {
+      id: '/_user/buy'
+      path: '/buy'
+      fullPath: '/buy'
+      preLoaderRoute: typeof UserBuyRouteImport
       parentRoute: typeof UserRouteRoute
     }
     '/_home/terms': {
@@ -842,6 +861,7 @@ const HomeRouteRouteWithChildren = HomeRouteRoute._addFileChildren(
 )
 
 interface UserRouteRouteChildren {
+  UserBuyRoute: typeof UserBuyRoute
   UserCoinRoute: typeof UserCoinRoute
   UserConnectWalletRoute: typeof UserConnectWalletRoute
   UserDashboardRoute: typeof UserDashboardRoute
@@ -855,6 +875,7 @@ interface UserRouteRouteChildren {
 }
 
 const UserRouteRouteChildren: UserRouteRouteChildren = {
+  UserBuyRoute: UserBuyRoute,
   UserCoinRoute: UserCoinRoute,
   UserConnectWalletRoute: UserConnectWalletRoute,
   UserDashboardRoute: UserDashboardRoute,

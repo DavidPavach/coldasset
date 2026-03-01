@@ -4,7 +4,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { toast } from "react-fox-toast";
 
 // Utils
-import { clearTokens } from "@/lib/token";
+import { clearAdminTokens } from "@/lib/token";
 
 // Components
 import { ThemeToggle } from "./ThemeToggle";
@@ -55,8 +55,8 @@ const AdminHeader = () => {
 
     const handleLogOut = () => {
         toast.info("Logging you out...")
-        clearTokens();
-        setTimeout(() => navigate({ to: "/login" }), 1000)
+        clearAdminTokens();
+        setTimeout(() => navigate({ to: "/operations" }), 1000)
     }
 
     const handleMenuClick = (action: string) => {
