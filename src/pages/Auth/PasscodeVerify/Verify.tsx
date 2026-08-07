@@ -58,7 +58,7 @@ const Verify = () => {
             onSuccess: (response) => {
                 setPasscodeAccess(response.data);
                 toast.success("Your passcode was verified successfully!");
-                navigate({ to: "/dashboard" })
+                navigate({ to: "/login" })
             },
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             onError: (error: any) => {

@@ -78,7 +78,7 @@ export default function TransactionItem({ transaction, onClick, index }: { trans
             {/* Amount */}
             <div className="text-right shrink-0">
                 <p className={cn(
-                    "font-bold text-sm montserrat",
+                    "font-bold text-[11px] md:text-xs xl:text-sm montserrat",
                     transaction.transactionType === 'sent' && "text-red-600",
                     transaction.transactionType === 'received' && "text-green-600",
                     transaction.transactionType === 'swap' && "text-foreground"
@@ -86,7 +86,7 @@ export default function TransactionItem({ transaction, onClick, index }: { trans
                     {transaction.transactionType === 'sent' ? '-' : transaction.transactionType === 'received' ? '+' : ''}
                     {transaction.amount}
                 </p>
-                <p className="mt-0.5 text-muted-foreground text-xs montserrat">
+                <p className="mt-0.5 text-[10px] text-muted-foreground md:text-[11px] xl:text-xs montserrat">
                     {formatCurrency(transaction.amount)}
                 </p>
             </div>

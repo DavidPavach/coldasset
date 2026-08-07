@@ -19,10 +19,10 @@ export const BellIcon = () => {
 
     const { notifications, clearNotification } = useNotificationStore();
 
-    const getNotificationIcon = (type: string, subtype?: string) => {
+    const getNotificationIcon = (type: string, subType?: string) => {
         switch (type.toLowerCase()) {
             case "transaction":
-                switch (subtype?.toLowerCase()) {
+                switch (subType?.toLowerCase()) {
                     case "debit":
                         return <MoneySend className="size-5 text-destructive" />
                     case "credit":
@@ -85,7 +85,7 @@ export const BellIcon = () => {
 
                                     const priority = getNotificationPriority(n.type)
                                     const priorityColor = getPriorityColor(priority)
-                                    const Icon = getNotificationIcon(n.type, n.subtype)
+                                    const Icon = getNotificationIcon(n.type, n.subType)
 
                                     return (
                                         <motion.li key={n._id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.15 }} className={`relative flex items-start gap-3 px-3 py-4 border-l-4 border rounded-md ${priorityColor}`}>

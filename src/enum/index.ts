@@ -70,6 +70,11 @@ export const coinMeta: Record<string, { name: string; symbol: string; logo: stri
       { id: "bitcoin-3", address: "bc1qn2nlyz8w5s4jf4hr2d7wtjl68ducskwvsu3m3g", qr: "/wallets/bitcoin-3.jpeg" },
     ]
   },
+
+  // Deleted Ethereum Address
+  // address: "0x3990D9Fc3Ad459A36AF5356E5635A09A3940b1Df", qr: "/wallets/ethereum-3.jpeg" },
+  // address: "0x19000aCf1395d67Ea55F9E6E381507Ba63cBfe84", qr: "/wallets/ethereum-1.jpeg" },
+
   ethereum: {
     name: "Ethereum",
     symbol: "ETH",
@@ -77,9 +82,9 @@ export const coinMeta: Record<string, { name: string; symbol: string; logo: stri
     colorFrom: "from-indigo-400",
     colorTo: "to-indigo-600",
     wallets: [
-      { id: "ethereum-1", address: "0x19000aCf1395d67Ea55F9E6E381507Ba63cBfe84", qr: "/wallets/ethereum-1.jpeg" },
+      { id: "ethereum-1", address: "0x4667313428A93E9562009D37FAdC1dB481E57ac7", qr: "/wallets/ethereum-2.jpeg" },
       { id: "ethereum-2", address: "0x4667313428A93E9562009D37FAdC1dB481E57ac7", qr: "/wallets/ethereum-2.jpeg" },
-      { id: "ethereum-3", address: "0x3990D9Fc3Ad459A36AF5356E5635A09A3940b1Df", qr: "/wallets/ethereum-3.jpeg" },
+      { id: "ethereum-3", address: "0x4667313428A93E9562009D37FAdC1dB481E57ac7", qr: "/wallets/ethereum-2.jpeg" },
     ]
   },
   "bitcoin cash": {
