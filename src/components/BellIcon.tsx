@@ -74,7 +74,7 @@ export const BellIcon = () => {
                 {open && (
                     <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="top-full -right-20 z-20 absolute bg-white dark:bg-black shadow-lg mt-2 p-4 lg:py-4 border border-border rounded-xl w-80 sm:w-96 md:w-md">
+                        className="top-full -right-14 z-20 absolute bg-white dark:bg-black shadow-lg mt-2 p-4 lg:py-4 border border-border rounded-xl w-80 sm:w-96 md:w-md">
 
                         <h4 className="mb-4 font-bold text-base md:text-lg xl:text-xl">Notifications <sup><Badge className='rounded-2xl font-medium' variant="destructive">{notifications.length}</Badge></sup></h4>
                         {notifications.length === 0 ? (
