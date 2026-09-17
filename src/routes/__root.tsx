@@ -1,39 +1,58 @@
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import { Outlet, createRootRoute } from '@tanstack/react-router';
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
-import { TanStackDevtools } from '@tanstack/react-devtools';
-import { ToastContainer } from 'react-fox-toast';
+// import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+// import { Outlet, createRootRoute } from '@tanstack/react-router';
+// import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
+// import { TanStackDevtools } from '@tanstack/react-devtools';
+// import { ToastContainer } from 'react-fox-toast';
 
-// Theme
-import { ThemeProviderEffect } from '@/components/ThemeProvider';
+// // Theme
+// import { ThemeProviderEffect } from '@/components/ThemeProvider';
 
-// Components
-import NotFound from '@/pages/NotFound';
-import Smartsupp from '@/components/Smartsupps';
+// // Components
+// import NotFound from '@/pages/NotFound';
+// import Smartsupp from '@/components/Smartsupps';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: 3,
-      retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
-      refetchOnWindowFocus: false,
-      staleTime: 5 * 60000,
-      refetchOnReconnect: true,
-      refetchOnMount: true,
-      gcTime: 7 * 60000
-    }
-  }
-})
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       retry: 3,
+//       retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+//       refetchOnWindowFocus: false,
+//       staleTime: 5 * 60000,
+//       refetchOnReconnect: true,
+//       refetchOnMount: true,
+//       gcTime: 7 * 60000
+//     }
+//   }
+// })
+
+// export const Route = createRootRoute({
+//   notFoundComponent: () => <NotFound />,
+//   component: () => (
+//     <QueryClientProvider client={queryClient}>
+//       <Outlet />
+//       <ToastContainer position="top-center" isPausedOnHover={true} duration={5000} />
+//       <ThemeProviderEffect />
+//       <Smartsupp />
+//       <TanStackDevtools config={{ position: 'bottom-right' }} plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel />, }]} />
+//     </QueryClientProvider>
+//   ),
+// })
+
+import { createRootRoute } from '@tanstack/react-router';
+
+const CombinedError = () => {
+  return (
+    <div className="flex justify-center items-center bg-slate-950 px-4 w-full h-dvh text-center">
+      <div>
+        <p className="mb-2 text-red-400">502</p>
+        <h1 className="text-white text-xl md:text-2xl xl:text-3xl">
+          Bad Gateway
+        </h1>
+      </div>
+    </div>
+  );
+};
 
 export const Route = createRootRoute({
-  notFoundComponent: () => <NotFound />,
-  component: () => (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-      <ToastContainer position="top-center" isPausedOnHover={true} duration={5000} />
-      <ThemeProviderEffect />
-      <Smartsupp />
-      <TanStackDevtools config={{ position: 'bottom-right' }} plugins={[{ name: 'Tanstack Router', render: <TanStackRouterDevtoolsPanel />, }]} />
-    </QueryClientProvider>
-  ),
-})
+  component: CombinedError,
+});
